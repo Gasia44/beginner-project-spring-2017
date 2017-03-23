@@ -1,16 +1,36 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { render } from 'react-dom';
 
-const Application = ({name, handler}) => {
-  return (
-    <div onClick={handler}> Hello {name} </div>
-  );
-};
+class Keyboard extends Component {
+    constructor() {
+      super();
+      this.playNote = this.playNote.bind(this);
+    }
+    playNote() {
+      tones.play(this.props.nota);
+    }
+    
+    render() {
+      const s = {width:'20vh', height:'100vh', color:'green', border:'2px solid black', float:'left'}
+      return(
+        <div style={s} onClick={this.playNote}>
+          Piano goes here
+        </div>
+    );
+  }
+}
+
+class Piano extends Component {
+  render() {
+  const notes = ["c", "d", "e", "f", "g", "a", "b"];
+    return (
+      <div>
+        {notes.map( (note) => <Keyboard key={note} nota={note} />)}
+      </div>
+    );
+  }
+}
 
 render((
-  <Application
-    name={'new iterate hacker'}
-    handler={function(e) {
-      console.log('Hello', e.target);
-    }}
-    />), document.getElementById('container'));
+  <Piano />),
+   document.getElementById('container'));
