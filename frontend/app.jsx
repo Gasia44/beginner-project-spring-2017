@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 
 import Layout from './Layout';
+import Piano from './Piano';
 
-render((
-  <Layout />),
-   document.getElementById('container'));
+render(
+    <Piano />, document.getElementById('container'));
+
