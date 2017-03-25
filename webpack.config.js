@@ -20,6 +20,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude:/node_modules/,
         query: {
+          plugins:['transform-decorators-legacy'], 
           // Here you can put plugins, like plugins:['transform-runtime']
           // plugins:['transform-class-properties'],
           presets: ['es2015', 'react', 'stage-3']
