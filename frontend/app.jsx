@@ -5,5 +5,4 @@ import Layout from './Layout';
 import Piano from './Piano';
 
 render(
-    <Piano />, document.getElementById('container'));
-
+    <Piano/>, document.getElementById('container'));

@@ -7,6 +7,8 @@ const KEYS = ['a','b','c','d','e','f','g','h','i','j','k','l','m',
                       '1','2','3','4','5','6','7','8','9'];
 
 
+
+/***********************BLACK**************************/
 class BlackKey extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +21,14 @@ class BlackKey extends React.Component {
    @keydownScoped( KEYS )
   k_d_handler(e) {
    if(this.props.idc == e.key){
+     switch (e.key) {
+       case "s": tones.play('c#');;break;
+       case "d": tones.play('d#');;break;
+       case "g":tones.play('f#');;break;
+       case "h": tones.play('g#');;break;
+       case "j": tones.play('a#');;break;
+       default:
+     }
      this.setState({
        b_g_color:'orange'
      });
@@ -26,40 +36,51 @@ class BlackKey extends React.Component {
          this.setState({
             b_g_color:'black'
          });
-       }, 200); 
+       }, 200);
    }
   }
 
   render(){
-    let left_margin = this.props.ln;
-    
+    let marginLeft = this.props.marginLeft;
+
     const div_style = {
-      marginLeft:'10px',
+      marginLeft: marginLeft,
       marginRight:'10px',
       width:'30px',
-      height:'45%', 
+      height:'45%',
       backgroundColor:this.state.b_g_color,
-      zIndex:'6',
       position:'absolute',
-      left:left_margin
     };
     return(
       <div style={div_style}  />
     );
   };
 }
+
+/***********************WHITE**************************/
 class WhiteKey extends React.Component {
   constructor() {
     super();
     this.k_d_handler = this.k_d_handler.bind(this);
     this.state = {
        b_g_color:'white'
-    };  
-  } 
-  
+    };
+  }
+
   @keydownScoped( KEYS )
-   k_d_handler(e) { 
-    if(this.props.idc == e.key){ 
+   k_d_handler(e) {
+    if(this.props.idc == e.key){
+      switch (e.key) {
+        case "z": tones.play('c');;break;
+        case "x": tones.play('d');;break;
+        case "c":tones.play('e');;break;
+        case "v": tones.play('f');;break;
+        case "b": tones.play('g');;break;
+        case "n": tones.play('a');;break;
+        case "m": tones.play('b');;break;
+        default:
+      }
+
       this.setState({
        b_g_color:'orange'
      });
@@ -67,16 +88,17 @@ class WhiteKey extends React.Component {
          this.setState({
             b_g_color:'white'
          });
-       }, 200);  
-    } 
+       }, 200);
+    }
   }
 
   render(){
     const div_style = {
       width:'45px',
-      height:'80%',   
+      height:'80%',
       backgroundColor:this.state.b_g_color,
-      border:'2px solid black'
+      border:'2px solid black',
+      float:'left'
     };
     return(
       <div style={div_style} />
@@ -84,10 +106,12 @@ class WhiteKey extends React.Component {
   };
 }
 
-@keydown( KEYS ) 
-export default class Piano extends React.Component { 
 
-  render() { 
+/***********************PIANO**************************/
+@keydown( KEYS )
+export default class Piano extends React.Component {
+
+  render() {
     const bottom_style = {
       display:'flex',
       justifyContent:'center',
@@ -98,46 +122,28 @@ export default class Piano extends React.Component {
       height:'230px',
       margin:'auto'
     };
-    const p_style = {
-      height:'70px',
-      width:'10%'
-    };
+
     return(
-      <div style={bottom_style}>    
-        <BlackKey ln='13%' idc='w' {...this.props}/>
-        <WhiteKey idc='a' {...this.props}/>
-         <WhiteKey idc='s' {...this.props}/>
-        <WhiteKey idc='d' {...this.props}/>
-         <BlackKey ln='23%' idc='e'{...this.props}/> 
-         <WhiteKey idc='f'{...this.props}/>
-         <WhiteKey idc='g'{...this.props}/>
-         <WhiteKey idc='h'{...this.props}/>
-          <BlackKey ln='33%' idc='y'{...this.props}/>    
-         <WhiteKey idc='j'{...this.props}/>
-         <WhiteKey idc='k'{...this.props}/>
-         <WhiteKey idc='l'{...this.props}/>
-          <BlackKey ln='43%' idc='u'{...this.props}/>      
-         <WhiteKey idc='m'{...this.props}/>
-         <WhiteKey idc='n'{...this.props}/>
-         <WhiteKey idc='x'{...this.props}/>
-         <BlackKey ln='53%' idc='i'{...this.props}/>     
-         <WhiteKey idc='c'{...this.props}/>
-         <WhiteKey idc='v'{...this.props}/>
-          <WhiteKey idc='b'{...this.props}/>
-           <BlackKey ln='63%' idc='o'{...this.props}/>   
-         <WhiteKey idc='1'{...this.props}/>
-         <WhiteKey idc='2'{...this.props}/>
-          <WhiteKey idc='9'{...this.props}/>
-           <WhiteKey idc='8'{...this.props}/>
-            <BlackKey ln='73%' idc='p'{...this.props}/>  
-           <WhiteKey idc='7'{...this.props}/>
-           <WhiteKey idc='3'{...this.props}/>
-           <WhiteKey idc='4'{...this.props}/>
-           <BlackKey ln='83%' idc='q'{...this.props}/>  
-           <WhiteKey idc='6'{...this.props}/>   
+      <div style={bottom_style}>
+
+        <div>
+
+          <WhiteKey idc='z' {...this.props}/>
+          <BlackKey marginLeft = '30px' idc='s' {...this.props}/>
+          <WhiteKey idc='x' {...this.props}/>
+          <BlackKey marginLeft = '75px' idc='d' {...this.props}/>
+          <WhiteKey idc='c' {...this.props}/>
+          <WhiteKey idc='v' {...this.props}/>
+          <BlackKey marginLeft = '165px' idc='g' {...this.props}/>
+          <WhiteKey idc='b' {...this.props}/>
+          <BlackKey marginLeft = '210px' idc='h' {...this.props}/>
+          <WhiteKey idc='n' {...this.props}/>
+          <BlackKey marginLeft = '255px' idc='j' {...this.props}/>
+          <WhiteKey idc='m' {...this.props}/>
+
+        </div>
+
       </div>
     );
   };
 }
-
-
