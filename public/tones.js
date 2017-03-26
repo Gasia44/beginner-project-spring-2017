@@ -1,8 +1,8 @@
 (function(window) {
     var tones = {
         context: new (window.AudioContext || window.webkitAudioContext)(),
-        attack: 1,
-        release: 100,
+        attack: 50,
+        release: 300,
         volume: 1,
         type: "sine",
 
@@ -14,7 +14,7 @@
             envelope.gain.setValueAtTime(this.volume, this.context.currentTime);
             envelope.connect(this.context.destination);
 
-            envelope.gain.setValueAtTime(0, this.context.currentTime);
+            envelope.gain.setValueAtTime(3, this.context.currentTime);
             envelope.gain.setTargetAtTime(this.volume, this.context.currentTime, this.attack / 1000);
             if(this.release) {
                 envelope.gain.setTargetAtTime(0, this.context.currentTime + this.attack / 1000, this.release / 1000);
