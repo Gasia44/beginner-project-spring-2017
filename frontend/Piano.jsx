@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 
 import keydown, { Keys, keydownScoped } from 'react-keydown';
 
+import PianoRock from '../public/fb-scripts/main';
+
 const KEYS = ['s','d','g','h','j','l',';',
                 'z','x','c','v','b','n','m',',','.','/'];
 
@@ -20,7 +22,7 @@ class BlackKey extends React.Component {
   k_d_handler(e) {
    if(this.props.idc == e.key){
      switch (e.key) {
-       case "s": tones.play('c#',5);window.pianoRock.pushNote(e);break;
+       case "s": tones.play('c#',5);PianoRock.pushNote(e);break;
        case "d": tones.play('d#',5);;break;
        case "g":tones.play('f#',5);;break;
        case "h": tones.play('g#',5);;break;

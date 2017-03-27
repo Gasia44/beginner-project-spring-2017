@@ -1,6 +1,6 @@
 'use strict';
  
-function PianoRock() {
+export default function PianoRock() {
   this.initial_load = true;  
 
   this.checkSetup();
