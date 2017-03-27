@@ -3,8 +3,11 @@ import { render } from 'react-dom';
 
 import keydown, { Keys, keydownScoped } from 'react-keydown';
 
-import PianoRock from '../public/fb-scripts/main';
+import PianoRock from './lib/fire-scripts';
 
+//TODO guys, don't use ';' and '/' keys. they trigger inner 
+// functions in linux's firefox (at least on kali), those
+// interrupting our app's normal flow
 const KEYS = ['s','d','g','h','j','l',';',
                 'z','x','c','v','b','n','m',',','.','/'];
 
@@ -22,14 +25,14 @@ class BlackKey extends React.Component {
   k_d_handler(e) {
    if(this.props.idc == e.key){
      switch (e.key) {
-       case "s": tones.play('c#',5);PianoRock.pushNote(e);break;
-       case "d": tones.play('d#',5);;break;
-       case "g":tones.play('f#',5);;break;
-       case "h": tones.play('g#',5);;break;
-       case "j": tones.play('a#',5);;break;
+       case "s": tones.play('c#',5);pianoRock.pushNote(e);break;
+       case "d": tones.play('d#',5);pianoRock.pushNote(e);break;
+       case "g":tones.play('f#',5);pianoRock.pushNote(e);break;
+       case "h": tones.play('g#',5);pianoRock.pushNote(e);break;
+       case "j": tones.play('a#',5);pianoRock.pushNote(e);break;
 
-       case "l": tones.play('c#',6);;break;
-       case ";": tones.play('d#',6);;break;
+       case "l": tones.play('c#',6);pianoRock.pushNote(e);break;
+       case ";": tones.play('d#',6);pianoRock.pushNote(e);break;
 
        default:
      }
@@ -75,17 +78,17 @@ class WhiteKey extends React.Component {
    k_d_handler(e) {
     if(this.props.idc == e.key){
       switch (e.key) {
-        case "z": tones.play('c',5);;break;
-        case "x": tones.play('d',5);;break;
-        case "c":tones.play('e',5);;break;
-        case "v": tones.play('f',5);;break;
-        case "b": tones.play('g',5);;break;
-        case "n": tones.play('a',5);;break;
-        case "m": tones.play('b',5);;break;
+        case "z": tones.play('c',5);pianoRock.pushNote(e);break;
+        case "x": tones.play('d',5);pianoRock.pushNote(e);break;
+        case "c":tones.play('e',5);pianoRock.pushNote(e);break;
+        case "v": tones.play('f',5);pianoRock.pushNote(e);break;
+        case "b": tones.play('g',5);pianoRock.pushNote(e);break;
+        case "n": tones.play('a',5);pianoRock.pushNote(e);break;
+        case "m": tones.play('b',5);pianoRock.pushNote(e);break;
 
-        case ",": tones.play('c',6);;break;
-        case ".": tones.play('d',6);;break;
-        case "/": tones.play('e',6);;break;
+        case ",": tones.play('c',6);pianoRock.pushNote(e);break;
+        case ".": tones.play('d',6);pianoRock.pushNote(e);break;
+        case "/": tones.play('e',6);pianoRock.pushNote(e);break;
 
 
         default:

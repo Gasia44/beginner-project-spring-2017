@@ -1,6 +1,6 @@
 'use strict';
  
-export default function PianoRock() {
+function PianoRock() {
   this.initial_load = true;  
 
   this.checkSetup();
@@ -16,7 +16,7 @@ export default function PianoRock() {
 
 PianoRock.prototype.pushNote = function(e) {
   e.preventDefault();
-   console.log('here');
+  
    let currentUser = this.auth.currentUser; 
   // Check that the user entered a message and is signed in.
   if (currentUser != null) {  
