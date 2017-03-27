@@ -33,9 +33,12 @@ export default class Header extends Component{
       fontSize:'34px'
     };
     return(
+      //TODO real button element should go instead of styled div
+      //TODO log-in and log-out on same button 
       <div>
         <div style = {headerStyle}>Hello!
-          <div style = {buttonStyle}>Login</div>
+          <div style = {buttonStyle} id="log-in" >Login</div>
+          <div style = {buttonStyle} id="log-out" >Logout</div>
         </div>
       </div>
     );

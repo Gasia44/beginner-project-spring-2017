@@ -6,8 +6,6 @@ import keydown, { Keys, keydownScoped } from 'react-keydown';
 const KEYS = ['s','d','g','h','j','l',';',
                 'z','x','c','v','b','n','m',',','.','/'];
 
-
-
 /***********************BLACK**************************/
 class BlackKey extends React.Component {
   constructor(props) {
@@ -22,7 +20,7 @@ class BlackKey extends React.Component {
   k_d_handler(e) {
    if(this.props.idc == e.key){
      switch (e.key) {
-       case "s": tones.play('c#',5);;break;
+       case "s": tones.play('c#',5);window.pianoRock.pushNote(e);break;
        case "d": tones.play('d#',5);;break;
        case "g":tones.play('f#',5);;break;
        case "h": tones.play('g#',5);;break;
@@ -123,6 +121,7 @@ class WhiteKey extends React.Component {
 export default class Piano extends React.Component {
 
   render() {
+   
     const bottom_style = {
       position: 'absolute',
        left: '40%',
