@@ -5,8 +5,22 @@
 </head>
 <body>
   <div id="container"/>
+   
+  <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCyU7gnZCvZRxyKil9lkTAGZY_Kd_I0DrE",
+    authDomain: "rockthepiano-8edbf.firebaseapp.com",
+    databaseURL: "https://rockthepiano-8edbf.firebaseio.com",
+    storageBucket: "rockthepiano-8edbf.appspot.com",
+    messagingSenderId: "563255425107"
+  };
+  firebase.initializeApp(config);
+  </script>
   <script src='bundle.js'></script>
   <!--TODO AG include this library in git 
   https://github.com/bit101/tones-->
   <script type="text/javascript" src="tones.js"></script>
+  <script type="text/javascript" src="../frontend/lib/fire-scripts.js"></script>
 </body>
