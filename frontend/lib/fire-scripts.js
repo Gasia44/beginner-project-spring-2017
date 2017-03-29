@@ -1,12 +1,12 @@
 'use strict';
- 
+
 function PianoRock() {
-  this.initial_load = true;  
+  this.initial_load = true;
 
   this.checkSetup();
 
   this.log_in_button = document.getElementById('log-in');
-  this.log_in_button.addEventListener('click', this.signIn.bind(this));    
+  this.log_in_button.addEventListener('click', this.signIn.bind(this));
 
   this.log_out_button = document.getElementById('log-out');
   this.log_out_button.addEventListener('click', this.signOut.bind(this));
@@ -16,14 +16,14 @@ function PianoRock() {
 
 PianoRock.prototype.pushNote = function(e) {
   e.preventDefault();
-  
-   let currentUser = this.auth.currentUser; 
+
+   let currentUser = this.auth.currentUser;
   // Check that the user entered a message and is signed in.
-  if (currentUser != null) {  
+  if (currentUser != null) {
     // Add a new tone entry to the Firebase Database.
     this.notesRef.push({
       name: 'anonymous',
-      note: e.key     
+      note: e.key
     }).catch(function(error) {
       console.error('Error writing new message to Firebase Database', error);
     });
@@ -45,26 +45,26 @@ PianoRock.prototype.loadNotes = function() {
   this.notesRef.limitToLast(1).on('child_changed', getNotes);
 };
 
-PianoRock.prototype.playNote = 
-                         function(key, name, note) { 
+PianoRock.prototype.playNote =
+                         function(key, name, note) {
   switch(note) {
-    case 's': tones.play('c#',5);break;
-    case 'd': tones.play('d#',5);break;
-    case 'g': tones.play('f#',5);break;
-    case 'h': tones.play('g#',5);break;
-    case 'j': tones.play('a#',5);break;
-    case 'l': tones.play('c#',6);break;
-    case ';': tones.play('d#',6);break;
-    case 'z': tones.play('c',5);break;
-    case 'x': tones.play('d',5);break;
-    case 'c': tones.play('e',5);break;
-    case 'v': tones.play('f',5);break;
-    case 'b': tones.play('g',5);break;
-    case 'n': tones.play('a',5);break;
-    case 'm': tones.play('b',5);break;
-    case ',': tones.play('c',6);break;
-    case '.': tones.play('d',6);break;
-    case '/': tones.play('e',6);break;
+    case '2': tones.play('c#',5);break;
+    case '3': tones.play('d#',5);break;
+    case '5': tones.play('f#',5);break;
+    case '6': tones.play('g#',5);break;
+    case '7': tones.play('a#',5);break;
+    case '9': tones.play('c#',6);break;
+    case '0': tones.play('d#',6);break;
+    case 'q': tones.play('c',5);break;
+    case 'w': tones.play('d',5);break;
+    case 'e': tones.play('e',5);break;
+    case 'r': tones.play('f',5);break;
+    case 't': tones.play('g',5);break;
+    case 'y': tones.play('a',5);break;
+    case 'u': tones.play('b',5);break;
+    case 'i': tones.play('c',6);break;
+    case 'o': tones.play('d',6);break;
+    case 'p': tones.play('e',6);break;
     default:
   }
 };
@@ -77,20 +77,20 @@ PianoRock.prototype.signOut = function() {
 PianoRock.prototype.signIn = function() {
   // Sign in Firebase using popup auth and Google as the identity provider.
   var provider = new firebase.auth.GoogleAuthProvider();
-  this.auth.signInWithPopup(provider);  
+  this.auth.signInWithPopup(provider);
 };
 
 PianoRock.prototype.onAuthStateChanged = function(user) {
   if(user){
-    //logic, when user signs-in 
+    //logic, when user signs-in
     alert('signed in');
     this.initial_load = false;
-    
-    this.loadNotes(); 
+
+    this.loadNotes();
   }else {
     if(!this.initial_load){
-      //logic, when user signs-out    
-      alert('signed out'); 
+      //logic, when user signs-out
+      alert('signed out');
     }
   }
 };
@@ -115,7 +115,7 @@ PianoRock.prototype.checkSetup = function() {
         'and make sure the storageBucket attribute is not empty. ' +
         'You may also need to visit the Storage tab and paste the name of your bucket which is ' +
         'displayed there.');
-  } 
+  }
 };
 
 window.onload = function() {
