@@ -7,8 +7,9 @@
     "npm": "^4.1.2"
   },
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
+    "start": "electron .",
     "watch": "node scripts/watch-project.js",
     "webpack-watch": "NODE_ENV='debug' webpack --progress -d --colors --watch",
     "server-watch": "NODE_ENV='debug' nodemon backend/server.js"
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/iteratehackerspace/beginner-project-spring-2017#readme",
   "dependencies": {
+    "electron": "^1.6.2",
     "express": "^4.14.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
