@@ -77,6 +77,10 @@ PianoRock.prototype.signOut = function() {
 PianoRock.prototype.signIn = function() {
   // Sign in Firebase using popup auth and Google as the identity provider.
   var provider = new firebase.auth.GoogleAuthProvider();
+  if (window.process != undefined){
+      this.auth.signInWithRedirect(provider);
+      return;
+  }
   this.auth.signInWithPopup(provider);
 };
 

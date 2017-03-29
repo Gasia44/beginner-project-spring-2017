@@ -1,3 +1,5 @@
+require('./server');
+
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -12,11 +14,16 @@ let mainWindow;
 //function to create the broser window
 const createWindow = () => {
     mainWindow = new BrowserWindow({width: 800, height: 600, resizable: false});
+
+    /*
     mainWindow.loadURL(url.format({
       pathname: path.join(__dirname, 'public/index.html'),
       protocol: 'file:',
       slashes: true
     }));
+    */
+
+    mainWindow.loadURL('http://localhost:8081');
 
     //open the dev tools if neccessary
     //mainWindow.webContents.openDevTools();
