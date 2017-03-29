@@ -10,8 +10,12 @@ class MusicBox extends React.Component{
     this.state={
       deltaPosition: {
         x: 0, y: 0
-      }
+      },
+      boxColor:'pink'
     }
+  }
+
+  componentDidMount() {
   }
 
   handleDrag(e, s) {
@@ -24,11 +28,13 @@ class MusicBox extends React.Component{
     });
   }
 
-  Drop(data) {
-        console.log(data)
+  onDrop(data) {
+      this.setState({boxColor:'magenta'})
+      setTimeout(function() { this.setState({boxColor:'pink'}); }.bind(this), 200);
+      console.log(data)
     }
 
-render() {
+ render() {
   const {deltaPosition} = this.state;
 
   const div_style = {
@@ -55,7 +61,7 @@ render() {
   const div_box_style = {
     width:'50%',
     height:'100px',
-    backgroundColor:'pink',
+    backgroundColor:this.state.boxColor,
     border:'2px solid black',
     borderRadius: '15px',
     left:'20%',
@@ -95,9 +101,9 @@ render() {
         </div>
 
           <Droppable types={['music']}   //allowed drop types
-            Drop={this.Drop.bind(this)}
+            onDrop={this.onDrop.bind(this)}
             style={div_box_style}>
-             ######### ######### DROP HERE ######### #########
+             #########  DROP HERE  #########
           </Droppable>
     </div>
     );
