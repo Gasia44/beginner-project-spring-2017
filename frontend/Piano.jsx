@@ -5,11 +5,9 @@ import keydown, { Keys, keydownScoped } from 'react-keydown';
 
 import PianoRock from './lib/fire-scripts';
 
-//TODO guys, don't use ';' and '/' keys. they trigger inner 
-// functions in linux's firefox (at least on kali), those
-// interrupting our app's normal flow
-const KEYS = ['s','d','g','h','j','l',';',
-                'z','x','c','v','b','n','m',',','.','/'];
+
+const KEYS = ['2','3','5','6','7','9','0',
+                'q','w','e','r','t','y','u','i','o','p'];
 
 /***********************BLACK**************************/
 class BlackKey extends React.Component {
@@ -25,14 +23,14 @@ class BlackKey extends React.Component {
   k_d_handler(e) {
    if(this.props.idc == e.key){
      switch (e.key) {
-       case "s": tones.play('c#',5);pianoRock.pushNote(e);break;
-       case "d": tones.play('d#',5);pianoRock.pushNote(e);break;
-       case "g":tones.play('f#',5);pianoRock.pushNote(e);break;
-       case "h": tones.play('g#',5);pianoRock.pushNote(e);break;
-       case "j": tones.play('a#',5);pianoRock.pushNote(e);break;
+       case "2": tones.play('c#',5);pianoRock.pushNote(e);break;
+       case "3": tones.play('d#',5);pianoRock.pushNote(e);break;
+       case "5":tones.play('f#',5);pianoRock.pushNote(e);break;
+       case "6": tones.play('g#',5);pianoRock.pushNote(e);break;
+       case "7": tones.play('a#',5);pianoRock.pushNote(e);break;
 
-       case "l": tones.play('c#',6);pianoRock.pushNote(e);break;
-       case ";": tones.play('d#',6);pianoRock.pushNote(e);break;
+       case "9": tones.play('c#',6);pianoRock.pushNote(e);break;
+       case "0": tones.play('d#',6);pianoRock.pushNote(e);break;
 
        default:
      }
@@ -78,17 +76,17 @@ class WhiteKey extends React.Component {
    k_d_handler(e) {
     if(this.props.idc == e.key){
       switch (e.key) {
-        case "z": tones.play('c',5);pianoRock.pushNote(e);break;
-        case "x": tones.play('d',5);pianoRock.pushNote(e);break;
-        case "c":tones.play('e',5);pianoRock.pushNote(e);break;
-        case "v": tones.play('f',5);pianoRock.pushNote(e);break;
-        case "b": tones.play('g',5);pianoRock.pushNote(e);break;
-        case "n": tones.play('a',5);pianoRock.pushNote(e);break;
-        case "m": tones.play('b',5);pianoRock.pushNote(e);break;
+        case "q": tones.play('c',5);pianoRock.pushNote(e);break;
+        case "w": tones.play('d',5);pianoRock.pushNote(e);break;
+        case "e":tones.play('e',5);pianoRock.pushNote(e);break;
+        case "r": tones.play('f',5);pianoRock.pushNote(e);break;
+        case "t": tones.play('g',5);pianoRock.pushNote(e);break;
+        case "y": tones.play('a',5);pianoRock.pushNote(e);break;
+        case "u": tones.play('b',5);pianoRock.pushNote(e);break;
 
-        case ",": tones.play('c',6);pianoRock.pushNote(e);break;
-        case ".": tones.play('d',6);pianoRock.pushNote(e);break;
-        case "/": tones.play('e',6);pianoRock.pushNote(e);break;
+        case "i": tones.play('c',6);pianoRock.pushNote(e);break;
+        case "o": tones.play('d',6);pianoRock.pushNote(e);break;
+        case "p": tones.play('e',6);pianoRock.pushNote(e);break;
 
 
         default:
@@ -126,7 +124,7 @@ class WhiteKey extends React.Component {
 export default class Piano extends React.Component {
 
   render() {
-   
+
     const bottom_style = {
       position: 'absolute',
        left: '40%',
@@ -144,24 +142,24 @@ export default class Piano extends React.Component {
       <div style = {bottom_style}>
         <div style={nots_style}>
 
-          <WhiteKey idc='z' {...this.props}/>
-          <BlackKey marginLeft = '30px' idc='s' {...this.props}/>
-          <WhiteKey idc='x' {...this.props}/>
-          <BlackKey marginLeft = '75px' idc='d' {...this.props}/>
-          <WhiteKey idc='c' {...this.props}/>
-          <WhiteKey idc='v' {...this.props}/>
-          <BlackKey marginLeft = '165px' idc='g' {...this.props}/>
-          <WhiteKey idc='b' {...this.props}/>
-          <BlackKey marginLeft = '210px' idc='h' {...this.props}/>
-          <WhiteKey idc='n' {...this.props}/>
-          <BlackKey marginLeft = '255px' idc='j' {...this.props}/>
-          <WhiteKey idc='m' {...this.props}/>
+          <WhiteKey idc='q' {...this.props}/>
+          <BlackKey marginLeft = '30px' idc='2' {...this.props}/>
+          <WhiteKey idc='w' {...this.props}/>
+          <BlackKey marginLeft = '75px' idc='3' {...this.props}/>
+          <WhiteKey idc='e' {...this.props}/>
+          <WhiteKey idc='r' {...this.props}/>
+          <BlackKey marginLeft = '165px' idc='5' {...this.props}/>
+          <WhiteKey idc='t' {...this.props}/>
+          <BlackKey marginLeft = '210px' idc='6' {...this.props}/>
+          <WhiteKey idc='y' {...this.props}/>
+          <BlackKey marginLeft = '255px' idc='7' {...this.props}/>
+          <WhiteKey idc='u' {...this.props}/>
 
-            <WhiteKey idc=',' {...this.props}/>
-            <BlackKey marginLeft = '345px' idc='l' {...this.props}/>
-            <WhiteKey idc='.' {...this.props}/>
-            <BlackKey marginLeft = '390px' idc=';' {...this.props}/>
-            <WhiteKey idc='/' {...this.props}/>
+            <WhiteKey idc='i' {...this.props}/>
+            <BlackKey marginLeft = '345px' idc='9' {...this.props}/>
+            <WhiteKey idc='o' {...this.props}/>
+            <BlackKey marginLeft = '390px' idc='0' {...this.props}/>
+            <WhiteKey idc='p' {...this.props}/>
 
         </div>
       </div>
