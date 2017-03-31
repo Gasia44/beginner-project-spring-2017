@@ -38,7 +38,9 @@ PianoRock.prototype.loadNotes = function() {
   // Loads the last 12 messages and listen for new ones.
   let getNotes = function(data) {
     let val = data.val();
-    this.playNote(val.lastNote);
+    if(this.auth.currentUser.uid != data.key){
+      this.playNote(val.lastNote); 
+    }
   }.bind(this);
   this.notesRef.limitToLast(1).on('child_added', getNotes);
   this.notesRef.limitToLast(1).on('child_changed', getNotes);
