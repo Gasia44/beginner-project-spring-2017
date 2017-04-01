@@ -23,14 +23,14 @@ class BlackKey extends React.Component {
   k_d_handler(e) {
    if(this.props.idc == e.key){
      switch (e.key) {
-       case "2": tones.play('c#',5);pianoRock.pushNote(e);break;
-       case "3": tones.play('d#',5);pianoRock.pushNote(e);break;
-       case "5": tones.play('f#',5);pianoRock.pushNote(e);break;
-       case "6": tones.play('g#',5);pianoRock.pushNote(e);break;
-       case "7": tones.play('a#',5);pianoRock.pushNote(e);break;
+       case "2": tones.play('c#',5);pianoRock.pushNote(e);this.props.hn(e);break;
+       case "3": tones.play('d#',5);pianoRock.pushNote(e);this.props.hn(e);break;
+       case "5": tones.play('f#',5);pianoRock.pushNote(e);this.props.hn(e);break;
+       case "6": tones.play('g#',5);pianoRock.pushNote(e);this.props.hn(e);break;
+       case "7": tones.play('a#',5);pianoRock.pushNote(e);this.props.hn(e);break;
 
-       case "9": tones.play('c#',6);pianoRock.pushNote(e);break;
-       case "0": tones.play('d#',6);pianoRock.pushNote(e);break;
+       case "9": tones.play('c#',6);pianoRock.pushNote(e);this.props.hn(e);break;
+       case "0": tones.play('d#',6);pianoRock.pushNote(e);this.props.hn(e);break;
 
        default:
      }
@@ -76,17 +76,17 @@ class WhiteKey extends React.Component {
    k_d_handler(e) {
     if(this.props.idc == e.key){
       switch (e.key) {
-        case "q": tones.play('c',5);pianoRock.pushNote(e);break;
-        case "w": tones.play('d',5);pianoRock.pushNote(e);break;
-        case "e": tones.play('e',5);pianoRock.pushNote(e);break;
-        case "r": tones.play('f',5);pianoRock.pushNote(e);break;
-        case "t": tones.play('g',5);pianoRock.pushNote(e);break;
-        case "y": tones.play('a',5);pianoRock.pushNote(e);break;
-        case "u": tones.play('b',5);pianoRock.pushNote(e);break;
+        case "q": tones.play('c',5);pianoRock.pushNote(e);this.props.hn(e);break;
+        case "w": tones.play('d',5);pianoRock.pushNote(e);this.props.hn(e);break;
+        case "e": tones.play('e',5);pianoRock.pushNote(e);this.props.hn(e);break;
+        case "r": tones.play('f',5);pianoRock.pushNote(e);this.props.hn(e);break;
+        case "t": tones.play('g',5);pianoRock.pushNote(e);this.props.hn(e);break;
+        case "y": tones.play('a',5);pianoRock.pushNote(e);this.props.hn(e);break;
+        case "u": tones.play('b',5);pianoRock.pushNote(e);this.props.hn(e);break;
 
-        case "i": tones.play('c',6);pianoRock.pushNote(e);break;
-        case "o": tones.play('d',6);pianoRock.pushNote(e);break;
-        case "p": tones.play('e',6);pianoRock.pushNote(e);break;
+        case "i": tones.play('c',6);pianoRock.pushNote(e);this.props.hn(e);break;
+        case "o": tones.play('d',6);pianoRock.pushNote(e);this.props.hn(e);break;
+        case "p": tones.play('e',6);pianoRock.pushNote(e);this.props.hn(e);break;
 
 
         default:
